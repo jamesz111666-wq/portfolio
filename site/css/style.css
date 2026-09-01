@@ -33,12 +33,19 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg);
   color: var(--text);
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 h1, h2, h3, .nav__logo, .btn {
@@ -128,11 +135,13 @@ a { color: inherit; text-decoration: none; }
   transition: width 0.25s ease;
 }
 
-.nav__links a:hover {
+.nav__links a:hover,
+.nav__links a.is-active {
   color: var(--text);
 }
 
-.nav__links a:hover::after {
+.nav__links a:hover::after,
+.nav__links a.is-active::after {
   width: 100%;
 }
 
@@ -341,71 +350,70 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-3px);
 }
 
-.hero__scroll {
-  position: absolute;
-  bottom: 40px;
-  left: clamp(20px, 6vw, 64px);
+.hero__quicklinks {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.hero__quicklinks a {
   color: var(--text-dim);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
 }
 
-.hero__scroll-line {
-  width: 1px;
-  height: 46px;
-  background: linear-gradient(var(--accent), transparent);
-  animation: scrollLine 2s ease-in-out infinite;
+.hero__quicklinks a span {
+  display: inline-block;
+  transition: transform 0.25s ease;
 }
 
-@keyframes scrollLine {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  50.1% { transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+.hero__quicklinks a:hover {
+  color: var(--text);
+}
+
+.hero__quicklinks a:hover span {
+  transform: translateX(4px);
+}
+
+/* Page header (sub-pages) */
+.page-head {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 160px clamp(20px, 6vw, 64px) 0;
+}
+
+.page-head h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin: 0;
+  line-height: 1.1;
+  background: linear-gradient(120deg, var(--text), var(--accent) 70%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-head__sub {
+  margin: 14px 0 0;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 60ch;
 }
 
 /* Sections */
 .section {
-  padding: 120px clamp(20px, 6vw, 64px);
+  padding: 56px clamp(20px, 6vw, 64px) 120px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.section--alt {
-  background: var(--bg-alt);
-  max-width: none;
+.page-next {
+  margin-top: 72px;
+  padding-top: 32px;
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.section--alt > * {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section__head {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 48px;
-}
-
-.section__num {
-  color: var(--accent);
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.section__head h2 {
-  font-size: clamp(1.7rem, 4vw, 2.4rem);
-  margin: 0;
 }
 
 /* About */
@@ -637,17 +645,10 @@ a { color: inherit; text-decoration: none; }
 
 /* Contact */
 .contact {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
-}
-
-.contact__text {
-  color: var(--text-dim);
-  font-size: 1.05rem;
-  max-width: 480px;
 }
 
 .contact__email {
@@ -694,12 +695,28 @@ a { color: inherit; text-decoration: none; }
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__portrait-ring {
+    animation: none;
+  }
+
+  .cursor-blink {
+    animation: none;
+  }
 }
 
 /* Responsive */
