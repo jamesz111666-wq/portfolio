@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 · James Zhu</title>
+<meta name="description" content="关于朱晋辰 (James Zhu) —— 教育背景与专业方向">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo">JZ<span>.</span></a>
+  <nav class="nav__links">
+    <a href="about.html" class="is-active">关于</a>
+    <a href="skills.html">技能</a>
+    <a href="projects.html">案例</a>
+    <a href="experience.html">经历</a>
+    <a href="contact.html">联系</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+    <span class="theme-toggle__icon">◐</span>
+  </button>
+  <button class="nav__burger" id="navBurger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <section class="page-head reveal">
+    <h1>关于我</h1>
+    <p class="page-head__sub">我是谁,在做什么,以及为什么做这些。</p>
+  </section>
+
+  <section class="section">
+    <div class="about__grid">
+      <p class="about__text reveal">
+        我是朱晋辰(James),现在 CAA China 做体育营销与品牌赞助,常驻北京。
+        我毕业于南加州大学应用传播研究(Applied Communication Research)硕士,本科就读于纽约大学体育管理专业、经济学辅修。
+        过去几年我一直游走在体育、市场营销与跨文化传播的交叉点上——
+        从为布克、布伦森、约什·哈特等 NBA 球星策划社媒增长与品牌代言方案,到参与湖人队、牛仔队等职业球队的赞助招标项目。
+        我擅长把分散的数据和市场洞察,转化成能落地执行的营销策略,也享受在中美两种语境里做桥梁的过程。
+      </p>
+      <ul class="about__facts reveal">
+        <li><span>现职</span><strong>CAA China · 体育营销与赞助</strong></li>
+        <li><span>硕士</span><strong>USC 应用传播研究</strong></li>
+        <li><span>本科</span><strong>NYU 体育管理 · 经济学辅修</strong></li>
+        <li><span>方向</span><strong>体育营销 · 赞助策略 · 数字增长</strong></li>
+        <li><span>所在地</span><strong>北京 · Beijing</strong></li>
+      </ul>
+    </div>
+
+    <div class="page-next reveal">
+      <a href="skills.html" class="btn btn--ghost">下一页:技能 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> James Zhu. 用代码手写而成。</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

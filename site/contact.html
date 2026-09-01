@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系 · James Zhu</title>
+<meta name="description" content="联系朱晋辰 (James Zhu)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo">JZ<span>.</span></a>
+  <nav class="nav__links">
+    <a href="about.html">关于</a>
+    <a href="skills.html">技能</a>
+    <a href="projects.html">案例</a>
+    <a href="experience.html">经历</a>
+    <a href="contact.html" class="is-active">联系</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+    <span class="theme-toggle__icon">◐</span>
+  </button>
+  <button class="nav__burger" id="navBurger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <section class="page-head reveal">
+    <h1>联系我</h1>
+    <p class="page-head__sub">有想聊的项目、合作机会或者只是想打个招呼?欢迎联系。</p>
+  </section>
+
+  <section class="section">
+    <div class="contact reveal">
+      <a class="contact__email" href="mailto:jamesz111666@gmail.com">jamesz111666@gmail.com</a>
+      <div class="contact__socials">
+        <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/jamesz111666-wq" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> James Zhu. 用代码手写而成。</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

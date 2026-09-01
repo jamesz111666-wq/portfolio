@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精选案例 · James Zhu</title>
+<meta name="description" content="朱晋辰 (James Zhu) 的代表性项目与案例">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header class="nav">
+  <a href="index.html" class="nav__logo">JZ<span>.</span></a>
+  <nav class="nav__links">
+    <a href="about.html">关于</a>
+    <a href="skills.html">技能</a>
+    <a href="projects.html" class="is-active">案例</a>
+    <a href="experience.html">经历</a>
+    <a href="contact.html">联系</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+    <span class="theme-toggle__icon">◐</span>
+  </button>
+  <button class="nav__burger" id="navBurger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <section class="page-head reveal">
+    <h1>精选案例</h1>
+    <p class="page-head__sub">几个能代表我工作方式和成果的项目。</p>
+  </section>
+
+  <section class="section">
+    <div class="projects__grid">
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>NBA 球星社媒增长矩阵</h3>
+        <p>
+          负责运营布伦森、布克、约什·哈特等球员账号矩阵,4 个月内产出 4.25 万+条内容,
+          账号矩阵累计涨粉 200K+,并牵头布克 × 耐克品牌代言合作项目。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">East Goes Global</span>
+          <span class="tag">运动员品牌</span>
+        </div>
+        <a href="contact.html" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>顶级球队赞助资产招标</h3>
+        <p>
+          参与洛杉矶湖人队 & NFL 牛仔队合作的赞助商招标项目,梳理赞助资产(球衣广告位、
+          训练场馆冠名、场边曝光等),推动招标方案落地,12 个月内客户渗透率提升 30%+。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">Wasserman</span>
+          <span class="tag">赞助招标</span>
+        </div>
+        <a href="contact.html" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>“Feature Friday” 内容专栏</h3>
+        <p>
+          从 0 到 1 策划社媒原创系列,帮助大学生运动员获得更广泛曝光,系列内容累计
+          浏览量 500K+,并推动运动员账号涨粉 2.5 万+。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">SIDELINE</span>
+          <span class="tag">内容营销</span>
+        </div>
+        <a href="contact.html" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+    </div>
+
+    <div class="page-next reveal">
+      <a href="experience.html" class="btn btn--ghost">下一页:经历 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> James Zhu. 用代码手写而成。</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
