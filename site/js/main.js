@@ -38,17 +38,34 @@
     nav?.classList.toggle("is-scrolled", window.scrollY > 20);
   }, { passive: true });
 
-  /* Reveal on scroll */
-  const revealEls = document.querySelectorAll(".reveal");
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        io.unobserve(entry.target);
+  /* Reveal on scroll — anything already on screen shows at once, the rest
+     fades in as it scrolls into view. A timeout backstops both paths so
+     content is never left invisible. */
+  const revealEls = Array.from(document.querySelectorAll(".reveal"));
+  const show = (el) => el.classList.add("is-visible");
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          show(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        show(el);
+      } else {
+        io.observe(el);
       }
     });
-  }, { threshold: 0.15 });
-  revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach(show);
+  }
+
+  setTimeout(() => revealEls.forEach(show), 1500);
 
   /* Typewriter roles */
   const roles = [
