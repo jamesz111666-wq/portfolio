@@ -67,15 +67,11 @@
 
   setTimeout(() => revealEls.forEach(show), 1500);
 
-  /* Typewriter roles */
-  const roles = [
-    "体育营销策略专家",
-    "NBA 球星数字增长操盘手",
-    "赞助合作与商务拓展",
-    "中美体育跨文化连接者",
-  ];
+  /* Typewriter roles — the page supplies its own list via data-roles so the
+     Chinese and English versions can share this script. */
   const typewriterEl = document.getElementById("typewriter");
-  if (typewriterEl) {
+  const roles = (typewriterEl?.dataset.roles || "").split("|").filter(Boolean);
+  if (typewriterEl && roles.length) {
     let roleIndex = 0;
     let charIndex = 0;
     let deleting = false;
