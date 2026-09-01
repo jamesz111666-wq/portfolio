@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Zhu · 体育营销 & 品牌合作</title>
+<meta name="description" content="朱晋辰 (James Zhu) 的个人主页 —— 体育营销、赞助策略与运动员数字增长">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<header class="nav">
+  <a href="#top" class="nav__logo">JZ<span>.</span></a>
+  <nav class="nav__links">
+    <a href="#about">关于</a>
+    <a href="#skills">技能</a>
+    <a href="#projects">案例</a>
+    <a href="#experience">经历</a>
+    <a href="#contact">联系</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+    <span class="theme-toggle__icon">◐</span>
+  </button>
+  <button class="nav__burger" id="navBurger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="hero__row">
+      <div class="hero__text">
+        <p class="hero__eyebrow reveal">你好, 我是</p>
+        <h1 class="hero__name reveal">James Zhu</h1>
+        <p class="hero__subname reveal">朱晋辰</p>
+        <h2 class="hero__role reveal">
+          <span class="typewriter" id="typewriter"></span>
+          <span class="cursor-blink">|</span>
+        </h2>
+        <p class="hero__tagline reveal">
+          用数据与故事,把体育明星、品牌和粉丝连接在一起。目前是南加州大学应用传播研究硕士生,
+          专注体育营销、赞助策略与运动员数字增长。
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#projects" class="btn btn--primary">查看案例</a>
+          <a href="#contact" class="btn btn--ghost">联系我</a>
+        </div>
+      </div>
+      <div class="hero__portrait reveal" id="heroPortrait">
+        <div class="hero__portrait-ring"></div>
+        <img src="assets/james-zhu.jpg" alt="James Zhu (朱晋辰)">
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>向下滚动</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section__head reveal">
+      <span class="section__num">01</span>
+      <h2>关于我</h2>
+    </div>
+    <div class="about__grid">
+      <p class="about__text reveal">
+        我是朱晋辰(James),南加州大学应用传播研究(Applied Communication Research)在读硕士,
+        本科毕业于纽约大学体育管理专业、经济学辅修。过去几年我一直游走在体育、市场营销与跨文化传播的交叉点上——
+        从为布克、布伦森、约什·哈特等 NBA 球星策划社媒增长与品牌代言方案,到参与湖人队、牛仔队等职业球队的赞助招标项目。
+        我擅长把分散的数据和市场洞察,转化成能落地执行的营销策略,也享受在中美两种语境里做桥梁的过程。
+      </p>
+      <ul class="about__facts reveal">
+        <li><span>教育</span><strong>USC 应用传播研究 · 硕士在读</strong></li>
+        <li><span>本科</span><strong>NYU 体育管理 · 经济学辅修</strong></li>
+        <li><span>方向</span><strong>体育营销 · 赞助策略 · 数字增长</strong></li>
+        <li><span>所在地</span><strong>Los Angeles, CA</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="skills">
+    <div class="section__head reveal">
+      <span class="section__num">02</span>
+      <h2>技能</h2>
+    </div>
+    <div class="skills__groups">
+      <div class="skills__group reveal">
+        <h3>核心能力</h3>
+        <div class="tags">
+          <span class="tag">体育营销策略</span>
+          <span class="tag">赞助激活</span>
+          <span class="tag">商务拓展</span>
+          <span class="tag">数据分析与洞察</span>
+          <span class="tag">跨文化沟通</span>
+        </div>
+      </div>
+      <div class="skills__group reveal">
+        <h3>平台 & 工具</h3>
+        <div class="tags">
+          <span class="tag">小红书</span>
+          <span class="tag">抖音 / TikTok</span>
+          <span class="tag">微博 / 微信视频号</span>
+          <span class="tag">Instagram / Twitter</span>
+          <span class="tag">Excel & 数据报表</span>
+        </div>
+      </div>
+      <div class="skills__group reveal">
+        <h3>语言</h3>
+        <div class="tags">
+          <span class="tag">中文(母语)</span>
+          <span class="tag">英文(流利 · 双语办公)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section__head reveal">
+      <span class="section__num">03</span>
+      <h2>精选案例</h2>
+    </div>
+    <div class="projects__grid">
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>NBA 球星社媒增长矩阵</h3>
+        <p>
+          负责运营布伦森、布克、约什·哈特等球员账号矩阵,4 个月内产出 4.25 万+条内容,
+          账号矩阵累计涨粉 200K+,并牵头布克 × 耐克品牌代言合作项目。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">East Goes Global</span>
+          <span class="tag">运动员品牌</span>
+        </div>
+        <a href="#contact" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>顶级球队赞助资产招标</h3>
+        <p>
+          参与洛杉矶湖人队 & NFL 牛仔队合作的赞助商招标项目,梳理赞助资产(球衣广告位、
+          训练场馆冠名、场边曝光等),推动招标方案落地,12 个月内客户渗透率提升 30%+。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">Wasserman</span>
+          <span class="tag">赞助招标</span>
+        </div>
+        <a href="#contact" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-card__glow"></div>
+        <h3>“Feature Friday” 内容专栏</h3>
+        <p>
+          从 0 到 1 策划社媒原创系列,帮助大学生运动员获得更广泛曝光,系列内容累计
+          浏览量 500K+,并推动运动员账号涨粉 2.5 万+。
+        </p>
+        <div class="tags tags--sm">
+          <span class="tag">SIDELINE</span>
+          <span class="tag">内容营销</span>
+        </div>
+        <a href="#contact" class="project-card__link">想聊聊这个项目 →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="experience">
+    <div class="section__head reveal">
+      <span class="section__num">04</span>
+      <h2>经历</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2026.08 — 至今</span>
+          <h3>体育营销与赞助助理</h3>
+          <p>CAA China · 北京</p>
+          <p class="timeline__desc">参与头部品牌体育营销及商业合作策略制定,覆盖 NBA 等核心体育资源,策划品牌赞助激活方案,开展市场与竞品研究。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2025.09 — 2026.02</span>
+          <h3>NBA Project Manager</h3>
+          <p>East Goes Global · 洛杉矶</p>
+          <p class="timeline__desc">负责布克、布伦森、约什·哈特等 NBA 球星账号矩阵的营销与数字增长策略,推动账号矩阵累计涨粉 200K+,并主导品牌代言合作项目。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2025.01 — 至今</span>
+          <h3>Strategy & Business Development Intern</h3>
+          <p>Wasserman Media Group · 洛杉矶</p>
+          <p class="timeline__desc">为湖人队、牛仔队等顶级职业球队推动赞助商招标项目,支持球员市场活动的中国区落地,涵盖 Shai Gilgeous-Alexander、Klay Thompson 等球星。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2025.05 — 2025.09</span>
+          <h3>社区关系 & 青少年篮球实习生</h3>
+          <p>Los Angeles Sparks (WNBA) · 洛杉矶</p>
+          <p class="timeline__desc">参与执行 WNBA 赛季球队活动(季票欢迎、青少年篮球营、慈善活动等),主场比赛日运营支持,现场观赛人流量提升约 25%。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2024.01 — 2024.05</span>
+          <h3>Sponsorship Sales & Marketing Intern</h3>
+          <p>Sports, Sponsorships and Events Consulting, LLC · Princeton, NJ</p>
+          <p class="timeline__desc">面向全美 20+ 州的青少年足球组织开展赞助拓展,促成区域汽车品牌与青少年足球联盟的三年赞助协议。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2023.05 — 2023.08</span>
+          <h3>Social Media & Marketing Intern</h3>
+          <p>ONE Championship · 上海</p>
+          <p class="timeline__desc">运营 TikTok、微信、微博账号,推动粉丝增长 30K+;支持李小龙纪念日活动策划及周边产品上市,吸引 2K+ 现场观众。</p>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2022.09 — 2022.12</span>
+          <h3>Content Marketing Intern</h3>
+          <p>SIDELINE · 纽约</p>
+          <p class="timeline__desc">管理 Twitter & Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员曝光,累计浏览量 500K+。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="honors reveal">
+      <h3>荣誉 & 认证</h3>
+      <ul>
+        <li>体育经纪人资格 · 中华人民共和国国家体育总局认可 (2021)</li>
+        <li>纽约大学优秀学生名单 (2022)</li>
+        <li>高中校队队长 & 赛季最佳队友奖 (2020)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--contact" id="contact">
+    <div class="section__head reveal">
+      <span class="section__num">05</span>
+      <h2>联系我</h2>
+    </div>
+    <div class="contact reveal">
+      <p class="contact__text">
+        有想聊的项目、合作机会或者只是想打个招呼？欢迎联系。
+      </p>
+      <a class="contact__email" href="mailto:jamesz111666@gmail.com">jamesz111666@gmail.com</a>
+      <div class="contact__socials">
+        <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/jamesz111666-wq" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> James Zhu. 用代码手写而成。</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
