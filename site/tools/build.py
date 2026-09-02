@@ -58,8 +58,9 @@ def nav(lang, page):
 </div>"""
 
 
-def shell(lang, page, title, desc, body):
+def shell(lang, page, title, desc, body, extra_script=None):
     up = "../" if lang == "en" else ""
+    extra = f'\n<script src="{up}js/{extra_script}"></script>' if extra_script else ""
     return f"""<!DOCTYPE html>
 <html lang="{'zh-CN' if lang == 'zh' else 'en'}">
 <head>
@@ -79,7 +80,7 @@ def shell(lang, page, title, desc, body):
   <p>&copy; <span id="year"></span> James Zhu · 朱晋辰</p>
 </footer>
 
-<script src="{up}js/main.js"></script>
+<script src="{up}js/main.js"></script>{extra}
 </body>
 </html>
 """
@@ -121,6 +122,7 @@ C = {
             "stats": [("200K+", "账号矩阵涨粉"), ("30%+", "客户渗透率提升"),
                       ("3 年", "品牌赞助协议")],
             "roster_label": "合作过",
+            "pet_say": "汪!|带我出去|摸摸|饿了",
         },
         "about": {
             "title": "关于 · James Zhu", "desc": "关于朱晋辰 (James Zhu) —— 背景与专业方向",
@@ -215,6 +217,7 @@ C = {
             "stats": [("200K+", "Follower growth"), ("30%+", "Client penetration"),
                       ("3 years", "Sponsorship deal")],
             "roster_label": "Worked with",
+            "pet_say": "Woof!|Walk?|Pet me|Snack time",
         },
         "about": {
             "title": "About · James Zhu", "desc": "About Jinchen (James) Zhu — background and focus",
@@ -318,6 +321,39 @@ ROSTER = ["德文·布克 / Devin Booker", "杰伦·布伦森 / Jalen Brunson", 
 ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart", "Shai Gilgeous-Alexander",
              "Klay Thompson", "JaVale McGee", "Yang Hansen", "New York Knicks"]
 
+# The desk pet, drawn rather than cut out of a photo: at ~72px a photo crop is
+# just a smudge, and a flat cartoon keeps its legs, ear and tail readable enough
+# to animate. Faces right; js/pet.js mirrors it with scaleX to walk the other way.
+PET_SVG = """<svg viewBox="0 0 128 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <g fill="#C9B18E">
+            <rect class="pet-leg-b" x="35" y="58" width="11" height="28" rx="5.5"/>
+            <rect class="pet-leg-b" x="72" y="58" width="11" height="28" rx="5.5"/>
+          </g>
+          <g class="pet-tail" fill="#EFE0C6">
+            <circle cx="13" cy="23" r="7.5"/><circle cx="18" cy="31" r="8"/>
+            <circle cx="24" cy="39" r="8.5"/><circle cx="31" cy="46" r="9"/>
+          </g>
+          <g fill="#EFE0C6">
+            <circle cx="36" cy="47" r="15"/><circle cx="50" cy="40" r="15"/>
+            <circle cx="64" cy="42" r="15"/><circle cx="76" cy="49" r="14"/>
+            <ellipse cx="55" cy="57" rx="30" ry="15"/>
+          </g>
+          <g fill="#EFE0C6">
+            <rect class="pet-leg-a" x="42" y="59" width="12" height="28" rx="6"/>
+            <rect class="pet-leg-a" x="64" y="59" width="12" height="28" rx="6"/>
+          </g>
+          <circle cx="95" cy="35" r="17" fill="#EFE0C6"/>
+          <circle cx="86" cy="22" r="9" fill="#EFE0C6"/>
+          <circle cx="101" cy="20" r="9" fill="#EFE0C6"/>
+          <circle cx="110" cy="29" r="8" fill="#EFE0C6"/>
+          <ellipse cx="111" cy="45" rx="13" ry="10" fill="#F7EEDD"/>
+          <ellipse cx="120" cy="42" rx="5.5" ry="4.5" fill="#2B2723"/>
+          <path d="M111 50 q4 4.5 8 1.5" stroke="#2B2723" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <circle cx="101" cy="33" r="3.2" fill="#2B2723"/>
+          <circle cx="102.4" cy="31.7" r="1.1" fill="#fff"/>
+          <path class="pet-ear" d="M88 23 q-11 6 -11 22 q0 12 9 13 q9 1 10 -10 q1 -8 -3 -12 q5 -6 -5 -13 z" fill="#C9AE85"/>
+        </svg>"""
+
 
 def build_index(lang):
     c = C[lang]["index"]
@@ -326,6 +362,7 @@ def build_index(lang):
                       for t, label in c["links"])
     names = ROSTER if lang == "zh" else ROSTER_EN
     roster = "\n".join(f"    <b>{n}</b>" for n in names)
+    say = c["pet_say"]
     body = f"""  <div class="wrap">
     <div class="hero">
       <div class="hero__text">
@@ -340,6 +377,11 @@ def build_index(lang):
       <div class="hero__photo reveal">
         <img src="{up}assets/james-portrait.png" alt="James Zhu 朱晋辰" width="1180" height="1197">
       </div>
+
+      <div class="pet" id="miloPet" data-say="{say}" title="Milo" role="img" aria-label="Milo">
+        <span class="pet__say" aria-hidden="true"></span>
+        <span class="pet__sprite">{PET_SVG}</span>
+      </div>
     </div>
   </div>
 
@@ -351,7 +393,7 @@ def build_index(lang):
 {roster}
     </div>
   </div>"""
-    return shell(lang, "index", c["title"], c["desc"], body)
+    return shell(lang, "index", c["title"], c["desc"], body, extra_script="pet.js")
 
 
 def build_about(lang):
