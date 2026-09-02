@@ -124,7 +124,7 @@ C = {
         "index": {
             "title": "James Zhu · 朱晋辰 — 体育营销与品牌赞助",
             "desc": "朱晋辰 (James Zhu) 的个人主页 —— 体育营销、赞助策略与运动员数字增长",
-            "role": "体育营销 &amp; <b>品牌赞助</b><br>为运动员与品牌搭建连接",
+            "role": "体育营销 &amp; 品牌赞助<br>帮助运动员、品牌、联赛建立连接",
             "meta": "CAA CHINA — 北京",
             "links": [("work", "看案例"), ("experience", "看经历"), ("contact", "联系我")],
             "stats": [("200K+", "账号矩阵涨粉"), ("30%+", "客户渗透率提升"),
@@ -220,7 +220,7 @@ C = {
         "index": {
             "title": "James Zhu — Sports Marketing &amp; Partnerships",
             "desc": "Personal site of Jinchen (James) Zhu — sports marketing, sponsorship strategy and athlete digital growth",
-            "role": "Sports Marketing &amp; <b>Partnerships</b><br>Connecting athletes and brands",
+            "role": "Sports Marketing &amp; Partnerships<br>Connecting athletes, brands and leagues",
             "meta": "CAA CHINA — BEIJING",
             "links": [("work", "See the work"), ("experience", "Experience"), ("contact", "Get in touch")],
             "stats": [("200K+", "Follower growth"), ("30%+", "Client penetration"),

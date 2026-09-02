@@ -171,7 +171,6 @@ img { max-width: 100%; }
   color: var(--muted);
 }
 
-.hero__role b { font-weight: 400; color: var(--ink); }
 
 .hero__meta {
   margin: 34px 0 0;
