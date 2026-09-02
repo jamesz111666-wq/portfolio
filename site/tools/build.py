@@ -11,7 +11,7 @@ import hashlib
 import pathlib
 
 SITE = pathlib.Path(__file__).resolve().parent.parent
-BASE_URL = "https://jamesz111666-wq.github.io/portfolio"
+BASE_URL = "https://jameszhu.github.io"
 
 
 def rev(relpath):
@@ -550,7 +550,6 @@ def build_contact(lang):
       <a class="contact__email" href="mailto:jamesz111666@gmail.com">jamesz111666@gmail.com</a>
       <div class="contact__links">
         <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/jamesz111666-wq" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>"""
