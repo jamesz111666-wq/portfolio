@@ -595,14 +595,15 @@ img { max-width: 100%; }
 }
 
 /* Resume downloads (contact) -------------------------------------------- */
+/* The resume sat at the foot of the page in muted text and James could not
+   find it himself — a recruiter would not either. It now follows the email
+   directly and reads as a button. */
 .contact__files {
-  margin-top: clamp(44px, 6vw, 64px);
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
+  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 14px 34px;
+  align-items: center;
+  gap: 14px 18px;
 }
 
 .contact__files-label {
@@ -612,25 +613,32 @@ img { max-width: 100%; }
   text-transform: uppercase;
   color: var(--dim);
   flex: 0 0 auto;
-  margin-right: 6px;
+  width: 100%;
+  margin-bottom: 2px;
 }
 
 .contact__files a {
-  color: var(--muted);
-  font-size: 1.02rem;
-  transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 1rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .contact__files a em {
   font-style: normal;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   letter-spacing: 0.18em;
   color: var(--dim);
-  margin-left: 6px;
 }
 
-.contact__files a i { font-style: normal; display: inline-block; transition: transform 0.25s ease; }
-.contact__files a:hover { color: var(--ink); }
+.contact__files a i { font-style: normal; display: inline-block; color: var(--accent);
+                      transition: transform 0.25s ease; }
+.contact__files a:hover { border-color: var(--accent); background: var(--accent-soft); }
 .contact__files a:hover i { transform: translateY(3px); }
 
 /* 404 ------------------------------------------------------------------ */
