@@ -462,24 +462,38 @@ img { max-width: 100%; }
   color: var(--muted);
 }
 
+/* Editorial grid: the first shot runs 2x2 as the feature, the rest fill in
+   beside it. A "wide" shot spans two columns to close the gap left when the
+   remaining count would otherwise strand an empty cell. */
 .shots {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: clamp(20px, 3vw, 32px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.2vw, 26px);
+  /* size each figure to its own content; only the feature is stretched to fill
+     its two rows, otherwise every image gets a definite height, overriding
+     aspect-ratio and cropping the subject out of frame */
+  align-items: start;
 }
 
-.shot { margin: 0; }
+.shot { margin: 0; display: grid; grid-template-rows: 1fr auto; }
 
 .shot img {
   display: block;
   width: 100%;
-  height: auto;
+  height: auto;            /* the tag carries height="800"; without this the
+                              attribute wins and cover crops the subject out */
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 3px;
   filter: saturate(0.92) brightness(0.96);
   transition: filter 0.35s ease, transform 0.35s ease;
 }
+
+.shot--feature { grid-column: span 2; grid-row: span 2; align-self: stretch; }
+.shot--feature img { aspect-ratio: auto; height: 100%; }
+
+.shot--wide { grid-column: span 2; }
+.shot--wide img { aspect-ratio: 3 / 2; }
 
 .shot:hover img { filter: none; transform: translateY(-4px); }
 
@@ -582,6 +596,9 @@ img { max-width: 100%; }
   .about { grid-template-columns: 1fr; }
   .about__facts strong { text-align: left; }
   .case, .job { grid-template-columns: 1fr; gap: 6px; }
+  .shots { grid-template-columns: repeat(2, 1fr); }
+  .shot--feature { grid-column: span 2; grid-row: auto; }
+  .shot--feature img { aspect-ratio: 4 / 3; height: auto; }
   .job time { padding-top: 0; }
   .case__who { margin-bottom: 10px; }
 }

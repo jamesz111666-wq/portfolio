@@ -476,13 +476,23 @@ def build_contact(lang):
 def build_milo(lang):
     c = C[lang]["milo"]
     up = "../" if lang == "en" else ""
-    shots = "\n".join(
-        """      <figure class="shot reveal">
+    shots_html = []
+    n = len(c["captions"])
+    # first shot is the 2x2 feature; if the remaining count would strand an
+    # empty cell in the 4-column grid, the last one widens to close it
+    widen_last = (n - 1) % 2 == 1
+    for i, (title, caption) in enumerate(c["captions"], 1):
+        cls = "shot reveal"
+        if i == 1:
+            cls += " shot--feature"
+        elif i == n and widen_last:
+            cls += " shot--wide"
+        shots_html.append(
+            """      <figure class="%s">
         <img src="%sassets/dog-%d.jpg" alt="Milo — %s" loading="lazy" width="600" height="800">
         <figcaption><b>%s</b>%s</figcaption>
-      </figure>""" % (up, i, title, title, caption)
-        for i, (title, caption) in enumerate(c["captions"], 1)
-    )
+      </figure>""" % (cls, up, i, title, title, caption))
+    shots = "\n".join(shots_html)
     body = f"""{page_head(c['h1'], c['sub'])}
 
   <section class="section">
