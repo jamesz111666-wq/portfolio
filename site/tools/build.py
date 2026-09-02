@@ -196,7 +196,8 @@ C = {
         它不懂什么叫赞助权益,但它确实是我见过最会经营个人形象的一位。""",
             "captions": [("等饭的姿态", "只要厨房有动静,它就出现在这个位置。"),
                          ("出门警报", "车一开后备箱,它比谁都先上车。"),
-                         ("上班监工", "居家办公期间的固定视角。")],
+                         ("上班监工", "居家办公期间的固定视角。"),
+                         ("凑得太近", "它认为所有对话都应该在这个距离进行。")],
             "next": ("contact", "联系我"),
         },
         "contact": {
@@ -299,7 +300,8 @@ C = {
         ever worked with.""",
             "captions": [("Waiting for dinner", "Any noise from the kitchen and he is already in position."),
                          ("Car alarm", "Open the boot and he is in before anyone else."),
-                         ("Supervising", "The standard work-from-home viewing angle.")],
+                         ("Supervising", "The standard work-from-home viewing angle."),
+                         ("Too close", "He believes every conversation should happen at this range.")],
             "next": ("contact", "Contact"),
         },
         "contact": {
