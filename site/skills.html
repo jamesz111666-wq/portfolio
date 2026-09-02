@@ -10,45 +10,36 @@
 <link rel="alternate" hreflang="x-default" href="https://jamesz111666-wq.github.io/portfolio/en/skills.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<header class="nav">
-  <a href="index.html" class="nav__logo">JZ<span>.</span></a>
-  <nav class="nav__links">
-    <a href="about.html">关于</a>
-    <a href="skills.html" class="is-active">技能</a>
-    <a href="projects.html">案例</a>
-    <a href="experience.html">经历</a>
-    <a href="contact.html">联系</a>
-  </nav>
-  <div class="nav__actions">
-    <a class="nav__lang" href="en/skills.html" hreflang="en" aria-label="Switch to English">EN</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
-      <span class="theme-toggle__icon">◐</span>
-    </button>
-    <button class="nav__burger" id="navBurger" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+<div class="topbar">
+  <div class="topbar__inner">
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="about.html">关于</a>
+      <a href="skills.html" class="is-active">技能</a>
+      <a href="work.html">案例</a>
+      <a href="experience.html">经历</a>
+      <a href="contact.html">联系</a>
+    </nav>
+    <a class="topbar__lang" href="en/skills.html" hreflang="en" aria-label="Switch to English">EN</a>
   </div>
-</header>
+</div>
 
 <main>
 
   <section class="page-head reveal">
     <h1>技能</h1>
-    <p class="page-head__sub">从策略到执行,从中文互联网到英文互联网。</p>
+    <p>从策略到执行,从中文互联网到英文互联网。</p>
   </section>
 
   <section class="section">
-    <div class="skills__groups">
-      <div class="skills__group reveal">
-        <h3>核心能力</h3>
+    <div class="groups">
+      <div class="group reveal">
+        <h2>核心能力</h2>
         <div class="tags">
           <span class="tag">体育营销策略</span>
           <span class="tag">赞助激活</span>
@@ -57,8 +48,8 @@
           <span class="tag">跨文化沟通</span>
         </div>
       </div>
-      <div class="skills__group reveal">
-        <h3>平台 &amp; 工具</h3>
+      <div class="group reveal">
+        <h2>平台 &amp; 工具</h2>
         <div class="tags">
           <span class="tag">小红书</span>
           <span class="tag">抖音 / TikTok</span>
@@ -67,8 +58,8 @@
           <span class="tag">Excel &amp; 数据报表</span>
         </div>
       </div>
-      <div class="skills__group reveal">
-        <h3>语言</h3>
+      <div class="group reveal">
+        <h2>语言</h2>
         <div class="tags">
           <span class="tag">中文(母语)</span>
           <span class="tag">英文(流利 · 双语办公)</span>
@@ -76,15 +67,15 @@
       </div>
     </div>
 
-    <div class="page-next reveal">
-      <a href="projects.html" class="btn btn--ghost">下一页:精选案例 →</a>
+    <div class="next reveal">
+      <a href="work.html">下一页 — 精选案例 <i>→</i></a>
     </div>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>&copy; <span id="year"></span> James Zhu</p>
+  <p>&copy; <span id="year"></span> James Zhu · 朱晋辰</p>
 </footer>
 
 <script src="js/main.js"></script>

@@ -10,110 +10,94 @@
 <link rel="alternate" hreflang="x-default" href="https://jamesz111666-wq.github.io/portfolio/en/experience.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<header class="nav">
-  <a href="index.html" class="nav__logo">JZ<span>.</span></a>
-  <nav class="nav__links">
-    <a href="about.html">关于</a>
-    <a href="skills.html">技能</a>
-    <a href="projects.html">案例</a>
-    <a href="experience.html" class="is-active">经历</a>
-    <a href="contact.html">联系</a>
-  </nav>
-  <div class="nav__actions">
-    <a class="nav__lang" href="en/experience.html" hreflang="en" aria-label="Switch to English">EN</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
-      <span class="theme-toggle__icon">◐</span>
-    </button>
-    <button class="nav__burger" id="navBurger" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+<div class="topbar">
+  <div class="topbar__inner">
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="about.html">关于</a>
+      <a href="skills.html">技能</a>
+      <a href="work.html">案例</a>
+      <a href="experience.html" class="is-active">经历</a>
+      <a href="contact.html">联系</a>
+    </nav>
+    <a class="topbar__lang" href="en/experience.html" hreflang="en" aria-label="Switch to English">EN</a>
   </div>
-</header>
+</div>
 
 <main>
 
   <section class="page-head reveal">
     <h1>经历</h1>
-    <p class="page-head__sub">从纽约到上海,从洛杉矶到北京。</p>
+    <p>从纽约到上海,从洛杉矶到北京。</p>
   </section>
 
   <section class="section">
     <div class="timeline">
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2026.08 — 至今</span>
-          <h3>体育营销与赞助助理</h3>
-          <p>CAA China · 北京</p>
-          <p class="timeline__desc">参与头部品牌体育营销及商业合作策略制定,覆盖 NBA 等核心体育资源,策划品牌赞助激活方案,开展市场与竞品研究。</p>
+      <article class="job reveal">
+        <time>2026.08 — 至今</time>
+        <div>
+          <h2>体育营销与赞助助理</h2>
+          <div class="job__org">CAA China · 北京</div>
+          <p>参与头部品牌体育营销及商业合作策略制定,覆盖 NBA 等核心体育资源,策划品牌赞助激活方案,开展市场与竞品研究。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2025.09 — 2026.02</span>
-          <h3>NBA Project Manager</h3>
-          <p>East Goes Global · 洛杉矶</p>
-          <p class="timeline__desc">负责布克、布伦森、约什·哈特等 NBA 球星账号矩阵的营销与数字增长策略,推动账号矩阵累计涨粉 200K+,并主导品牌代言合作项目。</p>
+      </article>
+      <article class="job reveal">
+        <time>2025.09 — 2026.02</time>
+        <div>
+          <h2>NBA Project Manager</h2>
+          <div class="job__org">East Goes Global · 洛杉矶</div>
+          <p>负责布克、布伦森、约什·哈特等 NBA 球星账号矩阵的营销与数字增长策略,推动账号矩阵累计涨粉 200K+,并主导品牌代言合作项目。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2025.01 — 至今</span>
-          <h3>Strategy &amp; Business Development Intern</h3>
-          <p>Wasserman Media Group · 洛杉矶</p>
-          <p class="timeline__desc">为湖人队、牛仔队等顶级职业球队推动赞助商招标项目,支持球员市场活动的中国区落地,涵盖 Shai Gilgeous-Alexander、Klay Thompson 等球星。</p>
+      </article>
+      <article class="job reveal">
+        <time>2025.01 — 2026.05</time>
+        <div>
+          <h2>Strategy &amp; Business Development Intern</h2>
+          <div class="job__org">Wasserman Media Group · 洛杉矶</div>
+          <p>为湖人队、牛仔队等顶级职业球队推动赞助商招标项目,支持球员市场活动的中国区落地,涵盖 Shai Gilgeous-Alexander、Klay Thompson 等球星。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2025.05 — 2025.09</span>
-          <h3>社区关系 &amp; 青少年篮球实习生</h3>
-          <p>Los Angeles Sparks (WNBA) · 洛杉矶</p>
-          <p class="timeline__desc">参与执行 WNBA 赛季球队活动(季票欢迎、青少年篮球营、慈善活动等),主场比赛日运营支持,现场观赛人流量提升约 25%。</p>
+      </article>
+      <article class="job reveal">
+        <time>2025.05 — 2025.09</time>
+        <div>
+          <h2>社区关系 &amp; 青少年篮球实习生</h2>
+          <div class="job__org">Los Angeles Sparks (WNBA) · 洛杉矶</div>
+          <p>参与执行 WNBA 赛季球队活动(季票欢迎、青少年篮球营、慈善活动等),主场比赛日运营支持,现场观赛人流量提升约 25%。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2024.01 — 2024.05</span>
-          <h3>Sponsorship Sales &amp; Marketing Intern</h3>
-          <p>Sports, Sponsorships and Events Consulting, LLC · Princeton, NJ</p>
-          <p class="timeline__desc">面向全美 20+ 州的青少年足球组织开展赞助拓展,促成区域汽车品牌与青少年足球联盟的三年赞助协议。</p>
+      </article>
+      <article class="job reveal">
+        <time>2024.01 — 2024.05</time>
+        <div>
+          <h2>Sponsorship Sales &amp; Marketing Intern</h2>
+          <div class="job__org">Sports, Sponsorships and Events Consulting · Princeton, NJ</div>
+          <p>面向全美 20+ 州的青少年足球组织开展赞助拓展,促成区域汽车品牌与青少年足球联盟的三年赞助协议。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2023.05 — 2023.08</span>
-          <h3>Social Media &amp; Marketing Intern</h3>
-          <p>ONE Championship · 上海</p>
-          <p class="timeline__desc">运营 TikTok、微信、微博账号,推动粉丝增长 30K+;支持李小龙纪念日活动策划及周边产品上市,吸引 2K+ 现场观众。</p>
+      </article>
+      <article class="job reveal">
+        <time>2023.05 — 2023.08</time>
+        <div>
+          <h2>Social Media &amp; Marketing Intern</h2>
+          <div class="job__org">ONE Championship · 上海</div>
+          <p>运营 TikTok、微信、微博账号,推动粉丝增长 30K+;支持李小龙纪念日活动策划及周边产品上市,吸引 2K+ 现场观众。</p>
         </div>
-      </div>
-      <div class="timeline__item reveal">
-        <div class="timeline__dot"></div>
-        <div class="timeline__content">
-          <span class="timeline__date">2022.09 — 2022.12</span>
-          <h3>Content Marketing Intern</h3>
-          <p>SIDELINE · 纽约</p>
-          <p class="timeline__desc">管理 Twitter &amp; Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员曝光,累计浏览量 500K+。</p>
+      </article>
+      <article class="job reveal">
+        <time>2022.09 — 2022.12</time>
+        <div>
+          <h2>Content Marketing Intern</h2>
+          <div class="job__org">SIDELINE · 纽约</div>
+          <p>管理 Twitter &amp; Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员曝光,累计浏览量 500K+。</p>
         </div>
-      </div>
+      </article>
     </div>
 
     <div class="honors reveal">
-      <h3>荣誉 &amp; 认证</h3>
+      <h2>荣誉 &amp; 认证</h2>
       <ul>
         <li>体育经纪人资格 · 中华人民共和国国家体育总局认可 (2021)</li>
         <li>纽约大学优秀学生名单 (2022)</li>
@@ -121,15 +105,15 @@
       </ul>
     </div>
 
-    <div class="page-next reveal">
-      <a href="contact.html" class="btn btn--ghost">下一页:联系我 →</a>
+    <div class="next reveal">
+      <a href="contact.html">下一页 — 联系我 <i>→</i></a>
     </div>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p>&copy; <span id="year"></span> James Zhu</p>
+  <p>&copy; <span id="year"></span> James Zhu · 朱晋辰</p>
 </footer>
 
 <script src="js/main.js"></script>
