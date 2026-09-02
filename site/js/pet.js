@@ -4,15 +4,15 @@
   const pet = document.getElementById("miloPet");
   if (!pet) return;
 
-  // A wandering pet is decoration, so it goes away entirely for anyone who
-  // asked for less motion. Touch screens keep him: tapping works the same as
-  // clicking, and the hero reserves the same floor strip at every width.
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduced) { pet.remove(); return; }
-
   const sprite = pet.querySelector(".pet__sprite");
   const bubble = pet.querySelector(".pet__say");
   const lines = (pet.dataset.say || "!").split("|").filter(Boolean);
+
+  // "Reduce motion" asks for less movement, not less content — so Milo stays,
+  // he just stands still instead of wandering. Touch screens keep him too:
+  // tapping does what clicking does, and the hero reserves the same floor
+  // strip at every width. (CSS stops the leg and tail loops to match.)
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const SPEED = 46;          // px per second — an amble, not a commute
   const MARGIN = 28;
@@ -54,9 +54,16 @@
 
   pet.addEventListener("click", () => {
     const now = performance.now();
-    hopUntil = now + 520;
+    if (!reduced) hopUntil = now + 520;
     say(now);
+    if (reduced) window.setTimeout(() => bubble.classList.remove("is-on"), 1500);
   });
+
+  if (reduced) {
+    // He still greets a tap; he just never goes anywhere.
+    pet.style.transform = `translate3d(${x}px, 0, 0)`;
+    return;
+  }
 
   // pause while being looked at
   let hovered = false;

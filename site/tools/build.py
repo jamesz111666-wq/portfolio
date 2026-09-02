@@ -7,10 +7,19 @@ twelve files — that is what keeps the two languages from drifting apart.
 
 Run from site/:  python3 tools/build.py
 """
+import hashlib
 import pathlib
 
 SITE = pathlib.Path(__file__).resolve().parent.parent
 BASE_URL = "https://jamesz111666-wq.github.io/portfolio"
+
+
+def rev(relpath):
+    """?v=<content hash> so a changed stylesheet or script is never served from
+    a stale cache. GitHub Pages sends max-age=600 on everything, so without
+    this a visitor keeps yesterday's CSS for ten minutes after a deploy."""
+    data = (SITE / relpath).read_bytes()
+    return f"{relpath}?v={hashlib.sha1(data).hexdigest()[:8]}"
 PAGES = ["index", "about", "skills", "work", "experience", "milo", "contact"]
 
 NAV = {
@@ -36,7 +45,7 @@ def head(lang, page, title, desc):
 <link rel="alternate" hreflang="en" href="{en}">
 <link rel="alternate" hreflang="x-default" href="{en}">
 <link rel="preload" href="{up}assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{up}css/style.css">"""
+<link rel="stylesheet" href="{up}{rev('css/style.css')}">"""
 
 
 def nav(lang, page):
@@ -58,7 +67,8 @@ def nav(lang, page):
 
 def shell(lang, page, title, desc, body, extra_script=None):
     up = "../" if lang == "en" else ""
-    extra = f'\n<script src="{up}js/{extra_script}"></script>' if extra_script else ""
+    extra = (f'\n<script src="{up}{rev("js/" + extra_script)}"></script>'
+             if extra_script else "")
     return f"""<!DOCTYPE html>
 <html lang="{'zh-CN' if lang == 'zh' else 'en'}">
 <head>
@@ -78,7 +88,7 @@ def shell(lang, page, title, desc, body, extra_script=None):
   <p>&copy; <span id="year"></span> James Zhu · 朱晋辰</p>
 </footer>
 
-<script src="{up}js/main.js"></script>{extra}
+<script src="{up}{rev('js/main.js')}"></script>{extra}
 </body>
 </html>
 """

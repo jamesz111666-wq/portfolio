@@ -564,8 +564,12 @@ img { max-width: 100%; }
 
 .pet__say.is-on { opacity: 1; transform: translate(-50%, 0); }
 
+/* Reduce motion: Milo stays on the page, he just holds still. js/pet.js stops
+   walking him to match, so nothing here is left animating a stationary dog. */
 @media (prefers-reduced-motion: reduce) {
-  .pet { display: none; }
+  .pet-leg-a, .pet-leg-b, .pet-tail, .pet-ear { animation: none; }
+  .pet__sprite { transition: none; }
+  .pet__say { transition: opacity 0.22s ease; transform: translate(-50%, 0); }
 }
 
 /* Milo ----------------------------------------------------------------- */
