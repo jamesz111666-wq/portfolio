@@ -118,9 +118,9 @@ C = {
             "role": "体育营销 &amp; <b>品牌赞助</b><br>为运动员与品牌搭建连接",
             "meta": "CAA CHINA — 北京",
             "links": [("work", "看案例"), ("experience", "看经历"), ("contact", "联系我")],
-            "stats": [("200K+", "账号矩阵涨粉"), ("4.25万", "内容产出 / 4个月"),
-                      ("500K+", "专栏累计浏览"), ("30%+", "客户渗透率提升")],
-            "roster_label": "服务过",
+            "stats": [("200K+", "账号矩阵涨粉"), ("30%+", "客户渗透率提升"),
+                      ("3 年", "品牌赞助协议")],
+            "roster_label": "合作过",
         },
         "about": {
             "title": "关于 · James Zhu", "desc": "关于朱晋辰 (James Zhu) —— 背景与专业方向",
@@ -150,13 +150,13 @@ C = {
             "cases": [
                 ("NBA 球星社媒增长矩阵", "East Goes Global",
                  "负责布伦森、布克、约什·哈特等球员的账号矩阵运营,统筹内容策略与发布节奏,并牵头布克 × 耐克品牌代言合作项目。",
-                 [("4.25万", "内容产出"), ("200K+", "矩阵涨粉"), ("4 个月", "周期")]),
+                 [("200K+", "矩阵涨粉"), ("4 个月", "周期")]),
                 ("顶级球队赞助资产招标", "Wasserman",
                  "参与洛杉矶湖人队与 NFL 牛仔队的赞助商招标项目,梳理球衣广告位、训练场馆冠名、场边曝光等赞助资产,推动招标方案落地。",
                  [("30%+", "客户渗透率提升"), ("12 个月", "周期")]),
                 ("“Feature Friday” 内容专栏", "SIDELINE",
                  "从 0 到 1 策划社媒原创系列,帮助大学生运动员获得更广泛曝光,成为账号增长最快的内容线。",
-                 [("500K+", "累计浏览"), ("2.5万+", "账号涨粉")]),
+                 [("2.5万+", "账号涨粉")]),
             ],
             "next": ("experience", "经历"),
         },
@@ -178,7 +178,7 @@ C = {
                 ("2023.05 — 2023.08", "Social Media &amp; Marketing Intern", "ONE Championship · 上海",
                  "运营 TikTok、微信、微博账号,推动粉丝增长 30K+;支持李小龙纪念日活动策划及周边产品上市,吸引 2K+ 现场观众。"),
                 ("2022.09 — 2022.12", "Content Marketing Intern", "SIDELINE · 纽约",
-                 "管理 Twitter &amp; Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员曝光,累计浏览量 500K+。"),
+                 "管理 Twitter &amp; Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员获得更广泛曝光。"),
             ],
             "honors_title": "荣誉 &amp; 认证",
             "honors": ["体育经纪人资格 · 中华人民共和国国家体育总局认可 (2021)",
@@ -198,8 +198,8 @@ C = {
             "role": "Sports Marketing &amp; <b>Partnerships</b><br>Connecting athletes and brands",
             "meta": "CAA CHINA — BEIJING",
             "links": [("work", "See the work"), ("experience", "Experience"), ("contact", "Get in touch")],
-            "stats": [("200K+", "Follower growth"), ("42.5K", "Posts in 4 months"),
-                      ("500K+", "Series views"), ("30%+", "Client penetration")],
+            "stats": [("200K+", "Follower growth"), ("30%+", "Client penetration"),
+                      ("3 years", "Sponsorship deal")],
             "roster_label": "Worked with",
         },
         "about": {
@@ -237,13 +237,13 @@ C = {
             "cases": [
                 ("NBA athlete social growth", "East Goes Global",
                  "Ran the account network for Jalen Brunson, Devin Booker and Josh Hart — owning content strategy and publishing cadence, and leading the Booker × Nike endorsement collaboration.",
-                 [("42.5K", "Posts produced"), ("200K+", "Follower growth"), ("4 months", "Span")]),
+                 [("200K+", "Follower growth"), ("4 months", "Span")]),
                 ("Sponsorship sales for major franchises", "Wasserman",
                  "Supported sponsorship sales for the Los Angeles Lakers and Dallas Cowboys — mapping inventory across jersey patches, courtside branding and digital exposure, and preparing partnership materials.",
                  [("30%+", "Client penetration"), ("12 months", "Span")]),
                 ("“Feature Friday” content series", "SIDELINE",
                  "Built an original social series from scratch to give college athletes wider exposure; it became the fastest-growing content line on the account.",
-                 [("500K+", "Views"), ("25K+", "New followers")]),
+                 [("25K+", "New followers")]),
             ],
             "next": ("experience", "Experience"),
         },
@@ -267,7 +267,7 @@ C = {
                 ("May 2023 — Aug 2023", "Social Media &amp; Marketing Intern", "ONE Championship · Shanghai",
                  "Managed TikTok, WeChat and Weibo accounts, generating 30K+ total follower growth; supported the Bruce Lee Memorial Day event and merchandise launch, which drew 2K+ on-site attendees."),
                 ("Sep 2022 — Dec 2022", "Content Marketing Intern", "SIDELINE · New York",
-                 "Managed Twitter and Instagram accounts, driving 25K+ new followers in seven months, and created the “Feature Friday” series promoting college athletes, reaching 500K+ views."),
+                 "Managed Twitter and Instagram accounts, driving 25K+ new followers in seven months, and created the “Feature Friday” series giving college athletes wider exposure."),
             ],
             "honors_title": "Honors &amp; certifications",
             "honors": ["Licensed sports agent · recognized by the General Administration of Sport of China (2021)",
@@ -284,9 +284,10 @@ C = {
 }
 
 ROSTER = ["德文·布克 / Devin Booker", "杰伦·布伦森 / Jalen Brunson", "约什·哈特 / Josh Hart",
-          "Shai Gilgeous-Alexander", "克莱·汤普森 / Klay Thompson"]
-ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart",
-             "Shai Gilgeous-Alexander", "Klay Thompson"]
+          "Shai Gilgeous-Alexander", "克莱·汤普森 / Klay Thompson",
+          "贾维尔·麦基 / JaVale McGee", "杨瀚森 / Yang Hansen", "纽约尼克斯 / New York Knicks"]
+ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart", "Shai Gilgeous-Alexander",
+             "Klay Thompson", "JaVale McGee", "Yang Hansen", "New York Knicks"]
 
 
 def build_index(lang):

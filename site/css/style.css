@@ -230,7 +230,7 @@ img { max-width: 100%; }
   margin: 0 auto;
   padding: 34px var(--pad);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
 }
 
