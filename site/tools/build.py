@@ -22,6 +22,35 @@ def rev(relpath):
     return f"{relpath}?v={hashlib.sha1(data).hexdigest()[:8]}"
 PAGES = ["index", "about", "skills", "work", "experience", "milo", "contact"]
 
+# Company marks for the experience page. Keyed by the organisation name up to
+# the " · " separator, which is the one part of the org line that is identical
+# in both languages. A job renders its mark only when the file is actually
+# present in assets/logos/, so the page stays correct for however many have
+# been supplied — no broken images, no placeholders.
+LOGO_STEM = {
+    "CAA China": "caa",
+    "East Goes Global": "east-goes-global",
+    "Wasserman Media Group": "wasserman",
+    "Los Angeles Sparks (WNBA)": "la-sparks",
+    "Sports, Sponsorships and Events Consulting": "ssec",
+    "ONE Championship": "one-championship",
+    "SIDELINE": "sideline",
+}
+
+
+def logo_img(org, up):
+    """An <img> for the company mark, or "" if that file has not been added."""
+    name = org.split(" · ")[0]
+    stem = LOGO_STEM.get(name)
+    if not stem:
+        return ""
+    for ext in ("svg", "png", "webp", "jpg"):
+        if (SITE / "assets" / "logos" / f"{stem}.{ext}").exists():
+            return (f'<img class="job__logo" src="{up}assets/logos/{stem}.{ext}"'
+                    f' alt="{name}" loading="lazy">\n          ')
+    return ""
+
+
 NAV = {
     "zh": {"index": "首页", "about": "关于", "skills": "技能",
            "work": "案例", "experience": "经历", "milo": "Milo", "contact": "联系"},
@@ -174,20 +203,20 @@ C = {
             "title": "经历 · James Zhu", "desc": "朱晋辰 (James Zhu) 的工作与实习经历、荣誉认证",
             "h1": "经历", "sub": "从纽约到上海,从洛杉矶到北京。",
             "jobs": [
-                ("2026.08 — 至今", "体育营销与赞助助理", "CAA China · 北京",
+                ("2026.08 — 至今", "体育营销与赞助销售助理", "CAA China · 北京",
                  "参与头部品牌体育营销及商业合作策略制定,覆盖 NBA 等核心体育资源,策划品牌赞助激活方案,开展市场与竞品研究。"),
-                ("2025.09 — 2026.02", "NBA Project Manager", "East Goes Global · 洛杉矶",
+                ("2025.09 — 2026.02", "NBA 项目经理", "East Goes Global · 洛杉矶",
                  "负责布克、布伦森、约什·哈特等 NBA 球星账号矩阵的营销与数字增长策略,推动账号矩阵累计涨粉 200K+,并主导品牌代言合作项目。"),
-                ("2025.01 — 2026.05", "Strategy &amp; Business Development Intern", "Wasserman Media Group · 洛杉矶",
+                ("2025.01 — 2026.05", "战略与商务拓展实习生", "Wasserman Media Group · 洛杉矶",
                  "为湖人队、牛仔队等顶级职业球队推动赞助商招标项目,支持球员市场活动的中国区落地,涵盖 Shai Gilgeous-Alexander、Klay Thompson 等球星。"),
-                ("2025.05 — 2025.09", "社区关系 &amp; 青少年篮球实习生", "Los Angeles Sparks (WNBA) · 洛杉矶",
+                ("2025.05 — 2025.09", "社区关系与青少年篮球实习生", "Los Angeles Sparks (WNBA) · 洛杉矶",
                  "参与执行 WNBA 赛季球队活动(季票欢迎、青少年篮球营、慈善活动等),主场比赛日运营支持,现场观赛人流量提升约 25%。"),
-                ("2024.01 — 2024.05", "Sponsorship Sales &amp; Marketing Intern",
-                 "Sports, Sponsorships and Events Consulting · Princeton, NJ",
+                ("2024.01 — 2024.05", "赞助销售与市场实习生",
+                 "Sports, Sponsorships and Events Consulting · 新泽西州普林斯顿",
                  "面向全美 20+ 州的青少年足球组织开展赞助拓展,促成区域汽车品牌与青少年足球联盟的三年赞助协议。"),
-                ("2023.05 — 2023.08", "Social Media &amp; Marketing Intern", "ONE Championship · 上海",
+                ("2023.05 — 2023.08", "社交媒体与市场实习生", "ONE Championship · 上海",
                  "运营 TikTok、微信、微博账号,推动粉丝增长 30K+;支持李小龙纪念日活动策划及周边产品上市,吸引 2K+ 现场观众。"),
-                ("2022.09 — 2022.12", "Content Marketing Intern", "SIDELINE · 纽约",
+                ("2022.09 — 2022.12", "内容营销实习生", "SIDELINE · 纽约",
                  "管理 Twitter &amp; Instagram 账号,7 个月内涨粉 25K+;策划社媒专栏「Feature Friday」,帮助大学生运动员获得更广泛曝光。"),
             ],
             "honors_title": "荣誉 &amp; 认证",
@@ -478,15 +507,18 @@ def build_work(lang):
 
 def build_experience(lang):
     c = C[lang]["experience"]
+    up = "../" if lang == "en" else ""
     jobs = "\n".join(
         """      <article class="job reveal">
-        <time>%s</time>
+        <div class="job__side">
+          %s<time>%s</time>
+        </div>
         <div>
           <h2>%s</h2>
           <div class="job__org">%s</div>
           <p>%s</p>
         </div>
-      </article>""" % (date, role, org, desc)
+      </article>""" % (logo_img(org, up), date, role, org, desc)
         for date, role, org, desc in c["jobs"]
     )
     honors = "\n".join(f"        <li>{h}</li>" for h in c["honors"])

@@ -440,13 +440,33 @@ img { max-width: 100%; }
 
 .job:first-child { border-top: 1px solid var(--line); }
 
+.job__side { padding-top: 8px; }
+
 .job time {
+  display: block;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   color: var(--dim);
   font-variant-numeric: tabular-nums;
-  padding-top: 8px;
 }
+
+/* Company marks arrive in a dozen different colours and weights. Flattening
+   them to a white silhouette at rest makes them read as one set against the
+   pine ground; the real colours come back on hover. Needs transparent
+   backgrounds — a logo boxed in white would flatten to a white slab. */
+.job__logo {
+  display: block;
+  height: 26px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 13px;
+  filter: brightness(0) invert(1) opacity(0.66);
+  transition: filter 0.28s ease;
+}
+
+.job:hover .job__logo { filter: none; }
 
 .job h2 { margin: 0; font-size: 1.34rem; font-weight: 300; letter-spacing: 0.02em; }
 
