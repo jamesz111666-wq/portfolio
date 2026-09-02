@@ -215,7 +215,7 @@ C = {
                 ("NBA 球星社媒增长矩阵", "East Goes Global",
                  "负责布伦森、布克、约什·哈特等球员的账号矩阵运营,统筹内容策略与发布节奏,并牵头布克 × 耐克品牌代言合作项目。",
                  [("200K+", "矩阵涨粉"), ("4 个月", "周期")]),
-                ("顶级球队赞助资产招标", "Wasserman",
+                ("顶级球队赞助资产招标", "Wasserman（现 The Team）",
                  "参与洛杉矶湖人队与 NFL 牛仔队的赞助商招标项目,梳理球衣广告位、训练场馆冠名、场边曝光等赞助资产,推动招标方案落地。",
                  [("30%+", "客户渗透率提升"), ("12 个月", "周期")]),
                 ("“Feature Friday” 内容专栏", "SIDELINE",
@@ -318,7 +318,7 @@ C = {
                 ("NBA athlete social growth", "East Goes Global",
                  "Ran the account network for Jalen Brunson, Devin Booker and Josh Hart — owning content strategy and publishing cadence, and leading the Booker × Nike endorsement collaboration.",
                  [("200K+", "Follower growth"), ("4 months", "Span")]),
-                ("Sponsorship sales for major franchises", "Wasserman",
+                ("Sponsorship sales for major franchises", "Wasserman (now The Team)",
                  "Supported sponsorship sales for the Los Angeles Lakers and Dallas Cowboys — mapping inventory across jersey patches, courtside branding and digital exposure, and preparing partnership materials.",
                  [("30%+", "Client penetration"), ("12 months", "Span")]),
                 ("“Feature Friday” content series", "SIDELINE",
@@ -381,9 +381,11 @@ C = {
 
 ROSTER = ["德文·布克 / Devin Booker", "杰伦·布伦森 / Jalen Brunson", "约什·哈特 / Josh Hart",
           "Shai Gilgeous-Alexander", "克莱·汤普森 / Klay Thompson",
-          "贾维尔·麦基 / JaVale McGee", "杨瀚森 / Yang Hansen", "纽约尼克斯 / New York Knicks"]
+          "贾维尔·麦基 / JaVale McGee", "贾伦·杰克逊 / Jaren Jackson Jr.",
+          "杨瀚森 / Yang Hansen", "纽约尼克斯 / New York Knicks"]
 ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart", "Shai Gilgeous-Alexander",
-             "Klay Thompson", "JaVale McGee", "Yang Hansen", "New York Knicks"]
+             "Klay Thompson", "JaVale McGee", "Jaren Jackson Jr.", "Yang Hansen",
+             "New York Knicks"]
 
 # The desk pet, drawn rather than cut out of a photo: at ~72px a photo crop is
 # just a smudge, and a flat cartoon keeps its legs, ear and tail readable enough
