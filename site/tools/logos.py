@@ -7,6 +7,15 @@ Run:  python3 tools/logos.py <src> <assets/logos/name.png> [tolerance] [--invert
 disappear against the pine ground. Doing it here rather than with a CSS
 filter keeps one styling rule covering every logo.
 
+--key additionally knocks out canvas colour the flood fill cannot reach:
+the enclosed counters inside letters, such as the white triangles in CAA's
+two As, which are walled off from the border and so survive as white
+patches on a dark page. It keys on colour across the whole image, so it
+suits a two-tone mark and would eat a crest's white detail — hence opt-in.
+Alpha ramps with distance from the canvas colour and the result is
+unpremultiplied against it, so edges keep the mark's own colour instead of
+fading through a pale halo.
+
 Logos arrive as flat images on a solid canvas — white, black, brand navy —
 which is useless on a dark page and worse than useless under the silhouette
 filter the timeline applies (a boxed logo flattens to a solid slab). This
@@ -23,8 +32,9 @@ from collections import deque
 
 from PIL import Image, ImageChops, ImageFilter
 
-args = [a for a in sys.argv[1:] if a != "--invert"]
+args = [a for a in sys.argv[1:] if not a.startswith("--")]
 INVERT = "--invert" in sys.argv
+KEY = "--key" in sys.argv
 SRC = args[0]
 DST = args[1]
 TOL = int(args[2]) if len(args) > 2 else 60
@@ -71,7 +81,32 @@ while q:
 mask = Image.frombytes("L", (w, h), bytes(255 if not t else 0 for t in transparent))
 mask = mask.filter(ImageFilter.GaussianBlur(0.6))
 
-rgb = ImageChops.invert(im) if INVERT else im
+rgb = im.copy()
+if KEY:
+    # scale alpha by how far each pixel sits from the canvas colour, taking the
+    # furthest pixel in the image as fully opaque, then undo the blend the
+    # canvas contributed so a half-covered edge is the mark's colour, not a
+    # wash of it
+    mpx = mask.load()
+    kpx = rgb.load()
+    def dist(c):
+        return ((c[0] - bg[0]) ** 2 + (c[1] - bg[1]) ** 2 + (c[2] - bg[2]) ** 2) ** 0.5
+    far = max(dist(px[x, y]) for y in range(h) for x in range(w)) or 1.0
+    for y in range(h):
+        for x in range(w):
+            if not mpx[x, y]:
+                continue
+            a = min(1.0, dist(px[x, y]) / far)
+            mpx[x, y] = round(a * 255)
+            if a <= 0.004:
+                continue
+            c = px[x, y]
+            kpx[x, y] = tuple(
+                max(0, min(255, round((c[i] - (1 - a) * bg[i]) / a))) for i in range(3)
+            )
+
+if INVERT:
+    rgb = ImageChops.invert(rgb)
 out = rgb.convert("RGBA")
 out.putalpha(mask)
 
