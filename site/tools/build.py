@@ -41,7 +41,7 @@ LOGO_STEM = {
 def logo_img(org, up):
     """An <img> for the company mark, or "" if that file has not been added."""
     name = org.split(" · ")[0]
-    stem = LOGO_STEM.get(name)
+    stem = next((v for k, v in LOGO_STEM.items() if name.startswith(k)), None)
     if not stem:
         return ""
     for ext in ("svg", "png", "webp", "jpg"):
@@ -207,7 +207,7 @@ C = {
                  "参与头部品牌体育营销及商业合作策略制定,覆盖 NBA 等核心体育资源,策划品牌赞助激活方案,开展市场与竞品研究。"),
                 ("2025.09 — 2026.02", "NBA 项目经理", "East Goes Global · 洛杉矶",
                  "负责布克、布伦森、约什·哈特等 NBA 球星账号矩阵的营销与数字增长策略,推动账号矩阵累计涨粉 200K+,并主导品牌代言合作项目。"),
-                ("2025.01 — 2026.05", "战略与商务拓展实习生", "Wasserman Media Group · 洛杉矶",
+                ("2025.01 — 2026.05", "战略与商务拓展实习生", "Wasserman Media Group（现 The Team） · 洛杉矶",
                  "为湖人队、牛仔队等顶级职业球队推动赞助商招标项目,支持球员市场活动的中国区落地,涵盖 Shai Gilgeous-Alexander、Klay Thompson 等球星。"),
                 ("2025.05 — 2025.09", "社区关系与青少年篮球实习生", "Los Angeles Sparks (WNBA) · 洛杉矶",
                  "参与执行 WNBA 赛季球队活动(季票欢迎、青少年篮球营、慈善活动等),主场比赛日运营支持,现场观赛人流量提升约 25%。"),
@@ -311,7 +311,7 @@ C = {
                  "Support sports marketing and partnership strategy for leading brands across the NBA and other major properties; develop sponsorship activations integrating athletes, events, content and fan engagement; turn market research into actionable client recommendations."),
                 ("Sep 2025 — Feb 2026", "NBA Project Manager", "East Goes Global · Los Angeles",
                  "Owned marketing and digital growth strategy for NBA athletes including Devin Booker, Jalen Brunson and Josh Hart, contributing to 200K+ total follower growth, and led brand endorsement collaborations."),
-                ("Jan 2025 — May 2026", "Strategy &amp; Business Development Intern", "Wasserman Media Group · Los Angeles",
+                ("Jan 2025 — May 2026", "Strategy &amp; Business Development Intern", "Wasserman Media Group (now The Team) · Los Angeles",
                  "Drove sponsorship sales efforts for properties including the Los Angeles Lakers and Dallas Cowboys, and led China-market activation for NBA athletes such as Shai Gilgeous-Alexander and Klay Thompson, driving 100K+ follower growth."),
                 ("May 2025 — Sep 2025", "Community Relations &amp; Youth Basketball Intern",
                  "Los Angeles Sparks (WNBA) · Los Angeles",

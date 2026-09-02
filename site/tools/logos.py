@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Turn a supplied company logo into a transparent PNG for the experience page.
 
-Run:  python3 tools/logos.py <src> <assets/logos/name.png> [tolerance]
+Run:  python3 tools/logos.py <src> <assets/logos/name.png> [tolerance] [--invert]
+
+--invert flips the mark's colours, for a dark logo that would otherwise
+disappear against the pine ground. Doing it here rather than with a CSS
+filter keeps one styling rule covering every logo.
 
 Logos arrive as flat images on a solid canvas — white, black, brand navy —
 which is useless on a dark page and worse than useless under the silhouette
@@ -17,11 +21,13 @@ row of logos carries roughly equal optical weight.
 import sys
 from collections import deque
 
-from PIL import Image, ImageFilter
+from PIL import Image, ImageChops, ImageFilter
 
-SRC = sys.argv[1]
-DST = sys.argv[2]
-TOL = int(sys.argv[3]) if len(sys.argv) > 3 else 60
+args = [a for a in sys.argv[1:] if a != "--invert"]
+INVERT = "--invert" in sys.argv
+SRC = args[0]
+DST = args[1]
+TOL = int(args[2]) if len(args) > 2 else 60
 
 OUT_H = 160          # generous for retina; CSS displays these around 30px
 PAD = 2
@@ -65,7 +71,8 @@ while q:
 mask = Image.frombytes("L", (w, h), bytes(255 if not t else 0 for t in transparent))
 mask = mask.filter(ImageFilter.GaussianBlur(0.6))
 
-out = im.convert("RGBA")
+rgb = ImageChops.invert(im) if INVERT else im
+out = rgb.convert("RGBA")
 out.putalpha(mask)
 
 box = out.getbbox()
