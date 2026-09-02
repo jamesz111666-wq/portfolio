@@ -4,12 +4,11 @@
   const pet = document.getElementById("miloPet");
   if (!pet) return;
 
-  // A wandering pet is decoration: skip it for anyone who asked for less
-  // motion, and on touch screens where there is no cursor to react to and the
-  // viewport is too tight to spare the room.
+  // A wandering pet is decoration, so it goes away entirely for anyone who
+  // asked for less motion. Touch screens keep him: tapping works the same as
+  // clicking, and the hero reserves the same floor strip at every width.
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const pointer = window.matchMedia("(hover: hover)").matches;
-  if (reduced || !pointer) { pet.remove(); return; }
+  if (reduced) { pet.remove(); return; }
 
   const sprite = pet.querySelector(".pet__sprite");
   const bubble = pet.querySelector(".pet__say");
