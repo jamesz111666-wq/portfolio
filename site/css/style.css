@@ -707,7 +707,22 @@ img { max-width: 100%; }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: 0; text-align: center; }
   .hero__photo { order: -1; max-width: 320px; margin-top: 26px; }
-  .hero__text { padding: 26px 0 60px; }
+  .hero__text { padding: 26px 0 60px; order: 1; }
+
+  /* Milo walks under the portrait instead of at the foot of the hero. Stacked
+     on a phone the hero runs taller than the screen, so the bottom strip put
+     him a third of a screen below the fold — a desk pet nobody scrolls to is
+     no desk pet. As a grid item between the photo and the text he lands on
+     the first screen, and the reserved floor strip is no longer needed. */
+  .hero { padding-bottom: 0; }
+  .pet {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    order: 0;
+    justify-self: start;
+    margin: 8px 0 0;
+  }
   .hero__links { justify-content: center; }
   .hero__role { margin-left: auto; margin-right: auto; }
   .strip__inner { grid-template-columns: repeat(2, 1fr); gap: 26px; }
