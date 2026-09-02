@@ -11,13 +11,13 @@ import pathlib
 
 SITE = pathlib.Path(__file__).resolve().parent.parent
 BASE_URL = "https://jamesz111666-wq.github.io/portfolio"
-PAGES = ["index", "about", "skills", "work", "experience", "contact"]
+PAGES = ["index", "about", "skills", "work", "experience", "milo", "contact"]
 
 NAV = {
     "zh": {"index": "首页", "about": "关于", "skills": "技能",
-           "work": "案例", "experience": "经历", "contact": "联系"},
+           "work": "案例", "experience": "经历", "milo": "Milo", "contact": "联系"},
     "en": {"index": "Home", "about": "About", "skills": "Skills",
-           "work": "Work", "experience": "Experience", "contact": "Contact"},
+           "work": "Work", "experience": "Experience", "milo": "Milo", "contact": "Contact"},
 }
 LANG_LABEL = {"zh": "EN", "en": "中文"}
 LANG_ARIA = {"zh": "Switch to English", "en": "切换到中文"}
@@ -184,6 +184,19 @@ C = {
             "honors": ["体育经纪人资格 · 中华人民共和国国家体育总局认可 (2021)",
                        "纽约大学优秀学生名单 (2022)",
                        "高中校队队长 &amp; 赛季最佳队友奖 (2020)"],
+            "next": ("milo", "Milo"),
+        },
+        "milo": {
+            "title": "Milo · James Zhu", "desc": "James Zhu 的狗 Milo —— 首席陪伴官",
+            "h1": "Milo",
+            "sub": "网站看到这里,该介绍一下真正的老板了。",
+            "intro": """Milo,金毛贵宾,家里的首席陪伴官。
+        主要职责包括:全天候监督我在家办公、在我打字时把下巴压在键盘上、
+        以及在任何人进门后的三十秒内完成热情迎接。
+        它不懂什么叫赞助权益,但它确实是我见过最会经营个人形象的一位。""",
+            "captions": [("等饭的姿态", "只要厨房有动静,它就出现在这个位置。"),
+                         ("出门警报", "车一开后备箱,它比谁都先上车。"),
+                         ("上班监工", "居家办公期间的固定视角。")],
             "next": ("contact", "联系我"),
         },
         "contact": {
@@ -273,6 +286,20 @@ C = {
             "honors": ["Licensed sports agent · recognized by the General Administration of Sport of China (2021)",
                        "NYU Annual Honor Student list (2022)",
                        "High school team captain &amp; Teammate of the Year (2020)"],
+            "next": ("milo", "Milo"),
+        },
+        "milo": {
+            "title": "Milo · James Zhu", "desc": "Milo, James Zhu's goldendoodle and chief company officer",
+            "h1": "Milo",
+            "sub": "You made it this far — time to meet the actual boss.",
+            "intro": """Milo is a goldendoodle and the household's chief company officer.
+        His duties include supervising every work-from-home day, resting his chin on the keyboard
+        mid-sentence, and greeting anyone who walks through the door within thirty seconds.
+        He has no idea what sponsorship inventory is, but he is the best personal brand I have
+        ever worked with.""",
+            "captions": [("Waiting for dinner", "Any noise from the kitchen and he is already in position."),
+                         ("Car alarm", "Open the boot and he is in before anyone else."),
+                         ("Supervising", "The standard work-from-home viewing angle.")],
             "next": ("contact", "Contact"),
         },
         "contact": {
@@ -444,8 +471,33 @@ def build_contact(lang):
     return shell(lang, "contact", c["title"], c["desc"], body)
 
 
+def build_milo(lang):
+    c = C[lang]["milo"]
+    up = "../" if lang == "en" else ""
+    shots = "\n".join(
+        """      <figure class="shot reveal">
+        <img src="%sassets/dog-%d.jpg" alt="Milo — %s" loading="lazy" width="600" height="800">
+        <figcaption><b>%s</b>%s</figcaption>
+      </figure>""" % (up, i, title, title, caption)
+        for i, (title, caption) in enumerate(c["captions"], 1)
+    )
+    body = f"""{page_head(c['h1'], c['sub'])}
+
+  <section class="section">
+    <p class="milo__intro reveal">{c['intro']}</p>
+
+    <div class="shots">
+{shots}
+    </div>
+
+{next_link(lang, *c['next'])}
+  </section>"""
+    return shell(lang, "milo", c["title"], c["desc"], body)
+
+
 BUILDERS = {"index": build_index, "about": build_about, "skills": build_skills,
-            "work": build_work, "experience": build_experience, "contact": build_contact}
+            "work": build_work, "experience": build_experience, "milo": build_milo,
+            "contact": build_contact}
 
 
 def main():
