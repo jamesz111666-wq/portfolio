@@ -594,6 +594,27 @@ img { max-width: 100%; }
   .pet__say { transition: opacity 0.22s ease; transform: translate(-50%, 0); }
 }
 
+/* 404 ------------------------------------------------------------------ */
+/* Scoped under .page-head: these are <p> elements inside it, and the bare
+   class (0,1,0) loses to `.page-head p` (0,1,1) on size, colour and margin. */
+.page-head .notfound__code {
+  margin: 0 0 12px;
+  font-size: clamp(3.4rem, 9vw, 6rem);
+  font-weight: 200;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.page-head .notfound__en { margin-top: 10px; color: var(--dim); font-size: 0.94rem; }
+
+.page-head .notfound__back { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 26px; }
+
+.notfound__back a { color: var(--muted); transition: color 0.25s ease; }
+.notfound__back a:hover { color: var(--ink); }
+.notfound__back i { font-style: normal; display: inline-block; transition: transform 0.25s ease; }
+.notfound__back a:hover i { transform: translateX(4px); }
+
 /* Milo ----------------------------------------------------------------- */
 .milo__intro {
   margin: 0 0 clamp(34px, 5vw, 52px);

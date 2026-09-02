@@ -66,13 +66,38 @@ def head(lang, page, title, desc):
     up = "../" if lang == "en" else ""
     zh = f"{BASE_URL}/{'' if page == 'index' else page + '.html'}"
     en = f"{BASE_URL}/en/{'' if page == 'index' else page + '.html'}"
+    here = zh if lang == "zh" else en
     return f"""<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{here}">
 <link rel="alternate" hreflang="zh-CN" href="{zh}">
 <link rel="alternate" hreflang="en" href="{en}">
 <link rel="alternate" hreflang="x-default" href="{en}">
+
+<!-- Link previews. Without these a shared URL renders as a bare grey link on
+     LinkedIn, WeChat and iMessage — the first impression this site makes is
+     usually the card, not the page. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="James Zhu · 朱晋辰">
+<meta property="og:locale" content="{'zh_CN' if lang == 'zh' else 'en_US'}">
+<meta property="og:locale:alternate" content="{'en_US' if lang == 'zh' else 'zh_CN'}">
+<meta property="og:url" content="{here}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:image" content="{BASE_URL}/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="James Zhu 朱晋辰 — {'体育营销与品牌赞助' if lang == 'zh' else 'Sports Marketing & Partnerships'}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{BASE_URL}/assets/share.jpg">
+
+<link rel="icon" href="{up}favicon.ico" sizes="32x32">
+<link rel="icon" href="{up}assets/icon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
 <link rel="preload" href="{up}assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{up}{rev('css/style.css')}">"""
 
@@ -595,6 +620,69 @@ BUILDERS = {"index": build_index, "about": build_about, "skills": build_skills,
             "contact": build_contact}
 
 
+NOT_FOUND = {
+    "zh": ("404 · James Zhu", "页面不存在", "找不到这个页面",
+           "链接可能过期了,或者地址打错了。", "回首页"),
+    "en": ("404 · James Zhu", "Page not found", "This page does not exist",
+           "The link may be out of date, or the address mistyped.", "Back to home"),
+}
+
+
+def build_404():
+    """One page for both languages, served by Pages for any unknown path.
+
+    Every path is absolute: a 404 can be reached at any depth (/a/b/c), and a
+    relative stylesheet would resolve against that phantom directory and 404
+    in turn, leaving an unstyled error page.
+    """
+    title, kicker, h1, sub, back = NOT_FOUND["zh"]
+    _, kicker_en, h1_en, sub_en, back_en = NOT_FOUND["en"]
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/{rev('css/style.css')}">
+</head>
+<body>
+
+<main>
+  <section class="page-head">
+    <p class="notfound__code">404</p>
+    <h1>{h1}</h1>
+    <p>{sub}</p>
+    <p class="notfound__en">{h1_en}. {sub_en}</p>
+    <p class="notfound__back"><a href="/">{back} <i>→</i></a> &nbsp;
+       <a href="/en/">{back_en} <i>→</i></a></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> James Zhu · 朱晋辰</p>
+</footer>
+
+<script src="/{rev('js/main.js')}"></script>
+</body>
+</html>
+"""
+
+
+def build_sitemap():
+    urls = []
+    for lang in ("zh", "en"):
+        prefix = BASE_URL if lang == "zh" else f"{BASE_URL}/en"
+        for page in PAGES:
+            urls.append(f"{prefix}/" if page == "index" else f"{prefix}/{page}.html")
+    body = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{body}\n</urlset>\n")
+
+
 def main():
     (SITE / "en").mkdir(exist_ok=True)
     for lang in ("zh", "en"):
@@ -602,6 +690,15 @@ def main():
         for page in PAGES:
             (out / f"{page}.html").write_text(BUILDERS[page](lang), encoding="utf-8")
             print("wrote", (out / f"{page}.html").relative_to(SITE))
+
+    # generated here rather than hand-written so they cannot fall out of step
+    # with PAGES when a page is added or renamed
+    (SITE / "404.html").write_text(build_404(), encoding="utf-8")
+    (SITE / "sitemap.xml").write_text(build_sitemap(), encoding="utf-8")
+    (SITE / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n", encoding="utf-8")
+    for extra in ("404.html", "sitemap.xml", "robots.txt"):
+        print("wrote", extra)
 
 
 if __name__ == "__main__":

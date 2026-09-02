@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Jost; font-weight: 200 500; font-display: block;
+               src: url("../assets/fonts/jost-latin.woff2") format("woff2"); }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden;
+         background: #13251E; color: #EFF1EC;
+         font-family: Jost, "PingFang SC", sans-serif; font-weight: 300;
+         display: grid; grid-template-columns: 1fr 470px; align-items: center; }
+  .text { padding: 0 0 0 84px; }
+  h1 { font-weight: 200; font-size: 104px; line-height: 0.98; letter-spacing: .045em; }
+  h1 span { display: block; color: #D9B36C; }
+  .cn { margin-top: 20px; font-size: 26px; letter-spacing: .5em; color: #8FA096; }
+  .role { margin-top: 30px; font-size: 30px; font-weight: 200; color: #A9B4AC; line-height: 1.45; }
+  .meta { margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12);
+          font-size: 19px; letter-spacing: .22em; text-transform: uppercase; color: #8FA096; }
+  .photo { position: relative; height: 630px; display: flex; align-items: flex-end; }
+  .photo::before { content: ""; position: absolute; left: 50%; top: 12%;
+    transform: translateX(-50%); width: 88%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,179,108,.16), transparent 68%); filter: blur(30px); }
+  .photo img { position: relative; width: 100%; height: auto; display: block; }
+</style></head>
+<body>
+  <div class="text">
+    <h1>JAMES<span>ZHU</span></h1>
+    <p class="cn">朱 晋 辰</p>
+    <p class="role">体育营销 &amp; 品牌赞助<br>帮助运动员、品牌、联赛建立连接</p>
+    <p class="meta">CAA China — 北京</p>
+  </div>
+  <div class="photo"><img src="../assets/james-portrait.png" alt=""></div>
+</body></html>
