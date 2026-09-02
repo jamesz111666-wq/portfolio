@@ -181,8 +181,8 @@ C = {
             "role": "体育营销 &amp; 品牌赞助<br>帮助运动员、品牌、联赛建立连接",
             "meta": "CAA CHINA — 北京",
             "links": [("work", "看案例"), ("experience", "看经历"), ("contact", "联系我")],
-            "stats": [("200K+", "账号矩阵涨粉"), ("30%+", "客户渗透率提升"),
-                      ("3 年", "品牌赞助协议")],
+            "stats": [("200K+", "账号矩阵涨粉"), ("500+", "内容产出"),
+                      ("30%", "互动率增长")],
             "roster_label": "合作过",
             "pet_say": "汪!|带我出去|摸摸|饿了",
         },
@@ -217,7 +217,7 @@ C = {
                  [("200K+", "矩阵涨粉"), ("4 个月", "周期")]),
                 ("顶级球队赞助资产招标", "Wasserman（现 The Team）",
                  "参与洛杉矶湖人队与 NFL 牛仔队的赞助商招标项目,梳理球衣广告位、训练场馆冠名、场边曝光等赞助资产,推动招标方案落地。",
-                 [("30%+", "客户渗透率提升"), ("12 个月", "周期")]),
+                 [("12 个月", "周期")]),
                 ("“Feature Friday” 内容专栏", "SIDELINE",
                  "从 0 到 1 策划社媒原创系列,帮助大学生运动员获得更广泛曝光,成为账号增长最快的内容线。",
                  [("2.5万+", "账号涨粉")]),
@@ -277,8 +277,8 @@ C = {
             "role": "Sports Marketing &amp; Partnerships<br>Connecting athletes, brands and leagues",
             "meta": "CAA CHINA — BEIJING",
             "links": [("work", "See the work"), ("experience", "Experience"), ("contact", "Get in touch")],
-            "stats": [("200K+", "Follower growth"), ("30%+", "Client penetration"),
-                      ("3 years", "Sponsorship deal")],
+            "stats": [("200K+", "Follower growth"), ("500+", "Posts published"),
+                      ("30%", "Engagement lift")],
             "roster_label": "Worked with",
             "pet_say": "Woof!|Walk?|Pet me|Snack time",
         },
@@ -320,7 +320,7 @@ C = {
                  [("200K+", "Follower growth"), ("4 months", "Span")]),
                 ("Sponsorship sales for major franchises", "Wasserman (now The Team)",
                  "Supported sponsorship sales for the Los Angeles Lakers and Dallas Cowboys — mapping inventory across jersey patches, courtside branding and digital exposure, and preparing partnership materials.",
-                 [("30%+", "Client penetration"), ("12 months", "Span")]),
+                 [("12 months", "Span")]),
                 ("“Feature Friday” content series", "SIDELINE",
                  "Built an original social series from scratch to give college athletes wider exposure; it became the fastest-growing content line on the account.",
                  [("25K+", "New followers")]),
@@ -574,7 +574,7 @@ def build_contact(lang):
 
   <section class="section">
     <div class="contact reveal">
-      <a class="contact__email" href="mailto:jamesz111666@gmail.com">jamesz111666@gmail.com</a>
+      <a class="contact__email" href="mailto:jinchenzhu2000@outlook.com">jinchenzhu2000@outlook.com</a>
       <div class="contact__links">
         <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
       </div>
