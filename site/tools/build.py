@@ -35,9 +35,7 @@ def head(lang, page, title, desc):
 <link rel="alternate" hreflang="zh-CN" href="{zh}">
 <link rel="alternate" hreflang="en" href="{en}">
 <link rel="alternate" hreflang="x-default" href="{en}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="{up}assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{up}css/style.css">"""
 
 
