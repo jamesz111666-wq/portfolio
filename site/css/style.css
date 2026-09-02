@@ -450,23 +450,26 @@ img { max-width: 100%; }
   font-variant-numeric: tabular-nums;
 }
 
-/* Company marks arrive in a dozen different colours and weights. Flattening
-   them to a white silhouette at rest makes them read as one set against the
-   pine ground; the real colours come back on hover. Needs transparent
-   backgrounds — a logo boxed in white would flatten to a white slab. */
+/* Company marks keep their own colours: flattening them to one silhouette
+   turned the Sparks crest — a filled disc — into a featureless white dot, and
+   a stacked wordmark into a smudge. They are held slightly back at rest so the
+   rail stays quiet, and come forward on hover. Backgrounds are matted out by
+   tools/logos.py; a dark mark is inverted there rather than in CSS, so this
+   rule stays the same for every logo. */
 .job__logo {
   display: block;
-  height: 26px;
   width: auto;
-  max-width: 150px;
+  height: auto;
+  max-height: 38px;
+  max-width: 140px;
   object-fit: contain;
   object-position: left center;
-  margin-bottom: 13px;
-  filter: brightness(0) invert(1) opacity(0.66);
-  transition: filter 0.28s ease;
+  margin-bottom: 14px;
+  opacity: 0.82;
+  transition: opacity 0.28s ease;
 }
 
-.job:hover .job__logo { filter: none; }
+.job:hover .job__logo { opacity: 1; }
 
 .job h2 { margin: 0; font-size: 1.34rem; font-weight: 300; letter-spacing: 0.02em; }
 
