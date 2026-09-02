@@ -11,7 +11,7 @@ import hashlib
 import pathlib
 
 SITE = pathlib.Path(__file__).resolve().parent.parent
-BASE_URL = "https://jameszhu16.github.io/portfolio"
+BASE_URL = "https://jameszhu16.github.io"
 
 
 def rev(relpath):
