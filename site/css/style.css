@@ -594,6 +594,45 @@ img { max-width: 100%; }
   .pet__say { transition: opacity 0.22s ease; transform: translate(-50%, 0); }
 }
 
+/* Resume downloads (contact) -------------------------------------------- */
+.contact__files {
+  margin-top: clamp(44px, 6vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px 34px;
+}
+
+.contact__files-label {
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  flex: 0 0 auto;
+  margin-right: 6px;
+}
+
+.contact__files a {
+  color: var(--muted);
+  font-size: 1.02rem;
+  transition: color 0.25s ease;
+}
+
+.contact__files a em {
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+  margin-left: 6px;
+}
+
+.contact__files a i { font-style: normal; display: inline-block; transition: transform 0.25s ease; }
+.contact__files a:hover { color: var(--ink); }
+.contact__files a:hover i { transform: translateY(3px); }
+
 /* 404 ------------------------------------------------------------------ */
 /* Scoped under .page-head: these are <p> elements inside it, and the bare
    class (0,1,0) loses to `.page-head p` (0,1,1) on size, colour and margin. */

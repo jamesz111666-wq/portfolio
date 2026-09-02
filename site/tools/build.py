@@ -381,7 +381,7 @@ C = {
 
 ROSTER = ["德文·布克 / Devin Booker", "杰伦·布伦森 / Jalen Brunson", "约什·哈特 / Josh Hart",
           "Shai Gilgeous-Alexander", "克莱·汤普森 / Klay Thompson",
-          "贾维尔·麦基 / JaVale McGee", "贾伦·杰克逊 / Jaren Jackson Jr.",
+          "贾维尔·麦基 / JaVale McGee", "小贾伦·杰克逊 / Jaren Jackson Jr.",
           "杨瀚森 / Yang Hansen", "纽约尼克斯 / New York Knicks"]
 ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart", "Shai Gilgeous-Alexander",
              "Klay Thompson", "JaVale McGee", "Jaren Jackson Jr.", "Yang Hansen",
@@ -568,8 +568,23 @@ def build_experience(lang):
     return shell(lang, "experience", c["title"], c["desc"], body)
 
 
+# Each page offers only its own language's resume. A reader who wants the
+# other one is a nav click away — the language switch lands on the counterpart
+# of whatever page they are on, contact included.
+RESUMES = {
+    "zh": [("James-Zhu-Resume-CN.pdf", "中文简历", "PDF")],
+    "en": [("James-Zhu-Resume-EN.pdf", "English Resume", "PDF")],
+}
+RESUME_LABEL = {"zh": "简历", "en": "Resume"}
+
+
 def build_contact(lang):
     c = C[lang]["contact"]
+    up = "../" if lang == "en" else ""
+    files = "\n".join(
+        f'        <a href="{up}assets/{f}" download>{label} <em>{kind}</em> <i>↓</i></a>'
+        for f, label, kind in RESUMES[lang]
+    )
     body = f"""{page_head(c['h1'], c['sub'])}
 
   <section class="section">
@@ -577,6 +592,11 @@ def build_contact(lang):
       <a class="contact__email" href="mailto:jinchenzhu2000@outlook.com">jinchenzhu2000@outlook.com</a>
       <div class="contact__links">
         <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="contact__files">
+        <em class="contact__files-label">{RESUME_LABEL[lang]}</em>
+{files}
       </div>
     </div>
   </section>"""
