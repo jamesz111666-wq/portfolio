@@ -568,23 +568,17 @@ def build_experience(lang):
     return shell(lang, "experience", c["title"], c["desc"], body)
 
 
-# Each page offers only its own language's resume. A reader who wants the
-# other one is a nav click away — the language switch lands on the counterpart
-# of whatever page they are on, contact included.
-RESUMES = {
-    "zh": [("James-Zhu-Resume-CN.pdf", "中文简历", "PDF")],
-    "en": [("James-Zhu-Resume-EN.pdf", "English Resume", "PDF")],
+# The resume is not published. It carries a phone number and a home market's
+# worth of personal detail, and a file on a public URL is a file anyone can
+# take. Asking for it by email keeps James in the loop on who has a copy.
+RESUME_NOTE = {
+    "zh": "需要简历的话,发邮件给我就好。",
+    "en": "Happy to send my resume — just email me.",
 }
-RESUME_LABEL = {"zh": "简历", "en": "Resume"}
 
 
 def build_contact(lang):
     c = C[lang]["contact"]
-    up = "../" if lang == "en" else ""
-    files = "\n".join(
-        f'        <a href="{up}assets/{f}" download>{label} <em>{kind}</em> <i>↓</i></a>'
-        for f, label, kind in RESUMES[lang]
-    )
     body = f"""{page_head(c['h1'], c['sub'])}
 
   <section class="section">
@@ -594,10 +588,7 @@ def build_contact(lang):
         <a href="https://www.linkedin.com/in/jinchen-zhu-a9015a223" target="_blank" rel="noopener">LinkedIn</a>
       </div>
 
-      <div class="contact__files">
-        <em class="contact__files-label">{RESUME_LABEL[lang]}</em>
-{files}
-      </div>
+      <p class="contact__note">{RESUME_NOTE[lang]}</p>
     </div>
   </section>"""
     return shell(lang, "contact", c["title"], c["desc"], body)
