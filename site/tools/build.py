@@ -380,7 +380,8 @@ C = {
 }
 
 ROSTER = ["德文·布克 / Devin Booker", "杰伦·布伦森 / Jalen Brunson", "约什·哈特 / Josh Hart",
-          "Shai Gilgeous-Alexander", "克莱·汤普森 / Klay Thompson",
+          "谢伊·吉尔杰斯-亚历山大 / Shai Gilgeous-Alexander",
+          "克莱·汤普森 / Klay Thompson",
           "贾维尔·麦基 / JaVale McGee", "小贾伦·杰克逊 / Jaren Jackson Jr.",
           "杨瀚森 / Yang Hansen", "纽约尼克斯 / New York Knicks"]
 ROSTER_EN = ["Devin Booker", "Jalen Brunson", "Josh Hart", "Shai Gilgeous-Alexander",
