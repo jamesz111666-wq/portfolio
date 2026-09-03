@@ -176,7 +176,7 @@ def stats_strip(items):
 C = {
     "zh": {
         "index": {
-            "title": "James Zhu · 朱晋辰 — 体育营销与品牌赞助",
+            "title": "James Zhu · 朱晋辰 — 体育经纪人",
             "desc": "朱晋辰 (James Zhu) 的个人主页 —— 体育营销、赞助策略与运动员数字增长",
             "role": "体育营销 &amp; 品牌赞助<br>帮助运动员、品牌、联赛建立连接",
             "meta": "CAA CHINA — 北京",
@@ -272,7 +272,7 @@ C = {
     },
     "en": {
         "index": {
-            "title": "James Zhu — Sports Marketing &amp; Partnerships",
+            "title": "James Zhu — Sports Agent",
             "desc": "Personal site of Jinchen (James) Zhu — sports marketing, sponsorship strategy and athlete digital growth",
             "role": "Sports Marketing &amp; Partnerships<br>Connecting athletes, brands and leagues",
             "meta": "CAA CHINA — BEIJING",
